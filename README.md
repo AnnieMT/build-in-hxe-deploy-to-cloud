@@ -21,6 +21,9 @@ How to build a sample Python application with SAP HANA, express edition, and dep
 **15 min**
 
 ---
+
+#Part A: Set up the development environment
+
 [ACCORDION-BEGIN [Step 1: ](Import Code)]
 
 ###Import Code
@@ -170,6 +173,8 @@ API management allows the user to add policies that secures his apps on the clou
 
 2. Check the cloud foundry service URL in `backend/server.js -> var serviceAPI = "";`
 3. Check the application backend service URL in `ui/resources/webapp/controller/app.controller.js -> Settings.API_PATH = "https://<vmware_host>:<port>";`
+
+#Part B: Develop and Deploy
 
 ---
 

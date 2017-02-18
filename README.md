@@ -174,12 +174,66 @@ API management allows the user to add policies that secures his apps on the clou
 2. Check the cloud foundry service URL in `backend/server.js -> var serviceAPI = "";`
 3. Check the application backend service URL in `ui/resources/webapp/controller/app.controller.js -> Settings.API_PATH = "https://<vmware_host>:<port>";`
 
+[ACCORDION-END]
+
 #Part B: Develop and Deploy
 
+[ACCORDION-BEGIN [Step 1: ](Show source tables)]
+
+###Show source tables
+
+1. Here you can see three tables, Parties, Ratings and Transactions. The Parties table holds detailed information about the customers of the bank. For these customers, we also put external rating data as semi-structured JSON documents into the brand new HANA document store. Finally, we have the Transactions table which contains money transfers between our parties. These transactions form a payment network, which can then be represented as a graph in our new in-memory graph engine. `<show graph viewer>`
+2. all we need to do (to use the graph engine) is to create a graph workspace in which we define the parties as nodes and the transactions as edges between them. Now to calculate the trustworthiness of a specific customer, we want to analyze with whom this customer is exchanging money.
+
+[ACCORDION-END]
+
+[ACCORDION-BEGIN [Step 2: ](Replace Rating function with Graph rating)]
+
+###Replace Rating function with Graph rating
+
+1. To calculate this, you see here our rating stored procedure, which uses plain SQL. These kinds of graph queries, require lots of self joins and UNIONs. It is a nightmare to write and maintain. Now let’s see how we can simplify the SQL statement using the new graph engine. First, we’ll get rid of the old SQL. And replace it with the new one. Using the new graph engine does not only look prettier, it also gives you much more expressiveness, flexibility and performance
+
+[ACCORDION-END]
+
+[ACCORDION-BEGIN [Step 3: ](Show Service Wrapper in Python)]
+
+###Show Service Wrapper in Python
+
+Now, we’re done with the database artifacts. Let’s move on and create a consumable service on top. We talked about using any programming language. We can leverage Python or any other language in HANA
+
+1. With HANA XS Advanced, we can create application containers in any language. All we need to do is tell XS Advanced how to compile and run our container. As we may plan to integrate machine learning algorithms in the future, we chose Python and specified it in this manifest file. The python buildpack runs your container by executing a file called server.py, so let’s see what it looks like.`<click Python>`
+2. It contains a simple Python HTTP service. For now, we implemented the HTTP GET method to just call our Rating stored procedure and return the result
+
+[ACCORDION-END]
+
+[ACCORDION-BEGIN [Step 4: ](Deploy locally)]
+
+###Deploy locally
+
+To run our service, we need to deploy it. `<click command line>`
+On the laptop, we just execute XS push via command line to test it locally. `<kurze Pause, Positionswechsel>` In the meantime, we just arrived now at the office of our banking customer. The customer does not want to have the service on our laptop, he need it in the Cloud! But how can we deploy the service in `<Zettel raus>` CloudFoundry on SAP Cloud Platform? – the former HCP thing
+
+[ACCORDION-END]
+
+[ACCORDION-BEGIN [Step 5: ](Deploy in CF & Show in Browser)]
+
+###Deploy in CF & Show in Browser
+
+1. Easy, the only thing we have to do is to replace XS by CF in the command line. One simple command creates the application container, deploys the code, and starts our service in the Cloud! Once deployed, which just take a few moments, we can reach the service via this URL.
+
+[ACCORDION-END]
+
+[ACCORDION-BEGIN [Step 6: ](Add URL to app)]
+
+###Add URL to app
+
+1. We now developed the DB artifacts and the consumable service and deployed all this in the Cloud. The final step is to use the service in a Fiori frontend. A different team already developed a lightweight application in HANA with node.js, we can see the source code here. We now add the URL of the Cloud Service to the app, deploy it, and run it. Let’s select our customer 42 to analyze his trustworthiness. Our work is done, and our banking customer is really happy.
+[ACCORDION-END]
 ---
 
 ### A few notes
-- 
+- To conclude, with HANA Express, we developed a service on our way to the banking customer. When we arrived at the customer site, we were able to directly deploy the service into the Cloud. For the data, we required a document store and a graph engine. Here we were able to leverage the new HANA noSQL capabilities. On top of that, we had the freedom of choice with regards to the programming language and decided to use Python for our service wrapper. Any data, any programming language, any deployment, this is HANA 2.
+
 
 ## Next Steps
  - Go to Step 4 on the [SAP HANA, Express Edition Developer Page](https://www.sap.com/developer/topics/sap-hana-express.tutorials.html)

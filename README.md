@@ -182,8 +182,9 @@ API management allows the user to add policies that secures his apps on the clou
 
 ###Show source tables
 
-1. Here you can see three tables, Parties, Ratings and Transactions. The Parties table holds detailed information about the customers of the bank. For these customers, we also put external rating data as semi-structured JSON documents into the brand new HANA document store. Finally, we have the Transactions table which contains money transfers between our parties. These transactions form a payment network, which can then be represented as a graph in our new in-memory graph engine. `<show graph viewer>`
-2. all we need to do (to use the graph engine) is to create a graph workspace in which we define the parties as nodes and the transactions as edges between them. Now to calculate the trustworthiness of a specific customer, we want to analyze with whom this customer is exchanging money.
+1. Here you can see three tables, Parties, Ratings and Transactions. The Parties table holds detailed information about the customers of the bank. For these customers, we also put external rating data as semi-structured JSON documents into the brand new HANA document store. Finally, we have the Transactions table which contains money transfers between our parties. These transactions form a payment network, which can then be represented as a graph in our new in-memory graph engine.
+    ![Source tables](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step1_1.png)
+2. All we need to do, to use the graph engine, is to create a graph workspace in which we define the parties as nodes and the transactions as edges between them. Now to calculate the trustworthiness of a specific customer, we want to analyze with whom this customer is exchanging money.
 
 [ACCORDION-END]
 
@@ -191,7 +192,23 @@ API management allows the user to add policies that secures his apps on the clou
 
 ###Replace Rating function with Graph rating
 
-1. To calculate this, you see here our rating stored procedure, which uses plain SQL. These kinds of graph queries, require lots of self joins and UNIONs. It is a nightmare to write and maintain. Now let’s see how we can simplify the SQL statement using the new graph engine. First, we’ll get rid of the old SQL. And replace it with the new one. Using the new graph engine does not only look prettier, it also gives you much more expressiveness, flexibility and performance
+1. To calculate this, we have a rating stored procedure, which uses plain SQL.
+    ![Source tables](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step2_1.png)
+    
+    These kinds of graph queries require lots of self-joins and unions, which are tough to write and maintain.
+    ![Source tables](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step2_2.png)
+    
+    Now let’s see how we can simplify the SQL statement using the new graph engine.
+    ![Source tables](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step2_3.png)
+    
+    First, we’ll get rid of the old SQL.
+    ![Source tables](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step2_4.png)
+    
+    And replace it with the new one.
+    ![Source tables](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step2_5.png)
+    
+    Using the new graph engine does not only look prettier, it also gives you much more expressiveness, flexibility and performance.
+    ![Source tables](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step2_6.png)
 
 [ACCORDION-END]
 

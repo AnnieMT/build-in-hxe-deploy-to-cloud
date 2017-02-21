@@ -283,7 +283,10 @@ Now, we’re done with the database artifacts. Let’s move on and create a cons
 
 ###Add URL to app
 
-1. We now developed the DB artifacts and the consumable service and deployed all this in the Cloud. The final step is to use the service in a Fiori frontend. A different team already developed a lightweight application in HANA with node.js, we can see the source code here. We now add the URL of the Cloud Service to the app, deploy it, and run it. Let’s select our customer 42 to analyze his trustworthiness. Our work is done, and our banking customer is really happy.
+1. We have developed the database artifacts along with the consumable service, and have deployed all of it in the Cloud. The final step is to use the service in a Fiori frontend. 
+
+2. We have a sample lightweight application in SAP HANA with node.js, we can see the source code here. We now add the URL of the Cloud Service to the app, deploy it, and run it. 
+
 [ACCORDION-END]
 ---
 

@@ -183,6 +183,7 @@ API management allows the user to add policies that secures his apps on the clou
 ###Show source tables
 
 1. Here you can see three tables, Parties, Ratings and Transactions. The Parties table holds detailed information about the customers of the bank. For these customers, we also put external rating data as semi-structured JSON documents into the brand new HANA document store. Finally, we have the Transactions table which contains money transfers between our parties. These transactions form a payment network, which can then be represented as a graph in our new in-memory graph engine.
+
     ![Source tables](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step1_1.png)
 2. All we need to do, to use the graph engine, is to create a graph workspace in which we define the parties as nodes and the transactions as edges between them. Now to calculate the trustworthiness of a specific customer, we want to analyze with whom this customer is exchanging money.
 
@@ -193,21 +194,27 @@ API management allows the user to add policies that secures his apps on the clou
 ###Replace Rating function with Graph rating
 
 1. To calculate this, we have a rating stored procedure, which uses plain SQL.
+2. 
     ![Rating procedure](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step2_1.png)
     
     These kinds of graph queries require lots of self-joins and unions, which are tough to write and maintain.
+    
     ![Unions and joins](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step2_2.png)
     
     Now let’s see how we can simplify the SQL statement using the new graph engine.
+    
     ![Simplified SQL](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step2_3.png)
     
     First, we’ll get rid of the old SQL.
+    
     ![Remove old SQL](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step2_4.png)
     
     And replace it with the new one.
+    
     ![New SQL](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step2_5.png)
     
     Using the new graph engine does not only look prettier, it also gives you much more expressiveness, flexibility and performance.
+    
     ![Graph Engine](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step2_6.png)
 
 [ACCORDION-END]
@@ -219,9 +226,11 @@ API management allows the user to add policies that secures his apps on the clou
 Now, we’re done with the database artifacts. Let’s move on and create a consumable service on top. We talked about using any programming language. We can leverage Python or any other language in SAP HANA
 
 1. With SAP HANA XS Advanced, we can create application containers in any language. All we need to do is tell XS Advanced how to compile and run our container. As we may plan to integrate machine learning algorithms in the future, we chose Python and specified it in this manifest file. The python buildpack runs your container by executing a file called `server.py`
+
     ![Python file](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step3_1.png)
     
 2. It contains a simple Python HTTP service. For now, we implemented the HTTP GET method to just call the Rating stored procedure and return the result.
+    
     ![HTTP GET method](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step3_2.png)
 
 [ACCORDION-END]
@@ -231,10 +240,12 @@ Now, we’re done with the database artifacts. Let’s move on and create a cons
 ###Deploy locally
 
 1. To run the Python service, we need to deploy it. Deployment is enabled by the `manifest.yml` file.
+
     ![Manifest local](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step4_1.png)
     
 2. Type the following command via command line to execute XS push
     `xs push -f manifest.yml`
+   
     ![Local deployment](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step4_2.png)
 
 [ACCORDION-END]

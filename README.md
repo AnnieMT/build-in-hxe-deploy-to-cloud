@@ -248,14 +248,18 @@ Now, we’re done with the database artifacts. Let’s move on and create a cons
    
     ![Local deployment](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step4_2.png)
     
-3. The Python service is now deployed.
+3. The Python service is now starting up.
     ![Local deployment](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step4_3.png)
+    
+4. This deployment can be viewed on the browser. You can see the results for the stored procedure that was called.
+
+    ![Browser Local](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step4_4.png)
 
 [ACCORDION-END]
 
-[ACCORDION-BEGIN [Step 5: ](Deploy in CF & Show in Browser)]
+[ACCORDION-BEGIN [Step 5: ](Deploy on Cloud)]
 
-###Deploy in CF & Show in Browser
+###Deploy on Cloud
 
 1. This same service can also be deployed in the cloud. The `manifest-cf.yml` file enables the deployment. The only thing we have to do is to replace `xs` by `cf` in the command line, and `manifest.yml` by `manifest-cf.yml`
     
@@ -271,7 +275,7 @@ Now, we’re done with the database artifacts. Let’s move on and create a cons
     
 4. This deployment can be viewed on the browser. You can see the results for the stored procedure that was called.
     
-    ![Browser](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step5_4.png)
+    ![Browser Cloud](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step5_4.png)
 
 [ACCORDION-END]
 
@@ -284,7 +288,7 @@ Now, we’re done with the database artifacts. Let’s move on and create a cons
 ---
 
 ### A few notes
-- To conclude, with HANA Express, we developed a service on our way to the banking customer. When we arrived at the customer site, we were able to directly deploy the service into the Cloud. For the data, we required a document store and a graph engine. Here we were able to leverage the new HANA noSQL capabilities. On top of that, we had the freedom of choice with regards to the programming language and decided to use Python for our service wrapper. Any data, any programming language, any deployment, this is HANA 2.
+- To conclude, with SAP HANA, express edition, we were able to develop a service on the go, and also directly deploy the service in the cloud. For the data, we required a document store and a graph engine. Here we were able to leverage the new SAP HANA NoSQL capabilities. On top of that, we had the freedom to use the programming language of our choice and decided to use Python for our service wrapper. Any data, any programming language, any deployment, this is SAP HANA 2.0.
 
 
 ## Next Steps

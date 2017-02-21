@@ -230,8 +230,12 @@ Now, we’re done with the database artifacts. Let’s move on and create a cons
 
 ###Deploy locally
 
-To run our service, we need to deploy it. `<click command line>`
-On the laptop, we just execute XS push via command line to test it locally. `<kurze Pause, Positionswechsel>` In the meantime, we just arrived now at the office of our banking customer. The customer does not want to have the service on our laptop, he need it in the Cloud! But how can we deploy the service in `<Zettel raus>` CloudFoundry on SAP Cloud Platform? – the former HCP thing
+1. To run our service, we need to deploy it. On the laptop, we just execute XS push via command line to test it locally. Type the following command:
+    `xs push -f manifest.yml`
+    ![Local deployment](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step4_1.png)
+    
+    This manifest file is what enables you to deploy your Python service locally.
+    ![Local deployment](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step4_2.png)
 
 [ACCORDION-END]
 
@@ -239,7 +243,7 @@ On the laptop, we just execute XS push via command line to test it locally. `<ku
 
 ###Deploy in CF & Show in Browser
 
-1. Easy, the only thing we have to do is to replace XS by CF in the command line. One simple command creates the application container, deploys the code, and starts our service in the Cloud! Once deployed, which just take a few moments, we can reach the service via this URL.
+1. This same service can also be deployed in the cloud. The only thing we have to do is to replace XS by CF in the command line. One simple command creates the application container, deploys the code, and starts our service in the Cloud! Once deployed, which just take a few moments, we can reach the service via this URL.
 
 [ACCORDION-END]
 

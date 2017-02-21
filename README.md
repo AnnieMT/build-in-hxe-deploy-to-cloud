@@ -257,15 +257,17 @@ Now, we’re done with the database artifacts. Let’s move on and create a cons
 
 ###Deploy in CF & Show in Browser
 
-1. This same service can also be deployed in the cloud. The `manifest-cf.yml` file enables the deployment.
-
-    ![Local deployment](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step5_1.png)
+1. This same service can also be deployed in the cloud. The `manifest-cf.yml` file enables the deployment. The only thing we have to do is to replace `xs` by `cf` in the command line, and `manifest.yml` by `manifest-cf.yml`
     
-2. The only thing we have to do is to replace XS by CF in the command line. 
-    
-    ![Local deployment](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step4_2.png)
+    ![Manifest cloud](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step5_1.png)
 
-2. One simple command creates the application container, deploys the code, and starts our service in the Cloud! Once deployed, which just take a few moments, we can reach the service via this URL.
+2. One simple command creates the application container, deploys the code, and starts our service in the Cloud.
+    
+    ![Cloud deployment](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step5_2.png)
+    
+3. Once deployed, which just take a few moments, we can reach the service via this URL.
+
+    ![Cloud deployment](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step5_3.png)
 
 [ACCORDION-END]
 

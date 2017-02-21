@@ -268,6 +268,10 @@ Now, we’re done with the database artifacts. Let’s move on and create a cons
 3. Once deployed, which just take a few moments, we can reach the service via this URL.
 
     ![Cloud deployment](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step5_3.png)
+    
+4. This deployment can be viewed on the browser. You can see the results for the stored procedure that was called.
+    
+    ![Browser](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step5_4.png)
 
 [ACCORDION-END]
 

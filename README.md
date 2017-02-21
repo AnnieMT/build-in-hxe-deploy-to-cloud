@@ -230,11 +230,11 @@ Now, we’re done with the database artifacts. Let’s move on and create a cons
 
 ###Deploy locally
 
-1. To run our service, we need to deploy it. On the laptop, we just execute XS push via command line to test it locally. Type the following command:
-    `xs push -f manifest.yml`
-    ![Local deployment](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step4_1.png)
+1. To run the Python service, we need to deploy it. Deployment is enabled by the `manifest.yml` file.
+    ![Manifest local](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step4_1.png)
     
-    This manifest file is what enables you to deploy your Python service locally.
+2. Type the following command via command line to execute XS push
+    `xs push -f manifest.yml`
     ![Local deployment](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step4_2.png)
 
 [ACCORDION-END]

@@ -193,22 +193,22 @@ API management allows the user to add policies that secures his apps on the clou
 ###Replace Rating function with Graph rating
 
 1. To calculate this, we have a rating stored procedure, which uses plain SQL.
-    ![Source tables](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step2_1.png)
+    ![Rating procedure](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step2_1.png)
     
     These kinds of graph queries require lots of self-joins and unions, which are tough to write and maintain.
-    ![Source tables](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step2_2.png)
+    ![Unions and joins](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step2_2.png)
     
     Now let’s see how we can simplify the SQL statement using the new graph engine.
-    ![Source tables](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step2_3.png)
+    ![Simplified SQL](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step2_3.png)
     
     First, we’ll get rid of the old SQL.
-    ![Source tables](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step2_4.png)
+    ![Remove old SQL](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step2_4.png)
     
     And replace it with the new one.
-    ![Source tables](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step2_5.png)
+    ![New SQL](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step2_5.png)
     
     Using the new graph engine does not only look prettier, it also gives you much more expressiveness, flexibility and performance.
-    ![Source tables](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step2_6.png)
+    ![Graph Engine](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step2_6.png)
 
 [ACCORDION-END]
 
@@ -216,10 +216,13 @@ API management allows the user to add policies that secures his apps on the clou
 
 ###Show Service Wrapper in Python
 
-Now, we’re done with the database artifacts. Let’s move on and create a consumable service on top. We talked about using any programming language. We can leverage Python or any other language in HANA
+Now, we’re done with the database artifacts. Let’s move on and create a consumable service on top. We talked about using any programming language. We can leverage Python or any other language in SAP HANA
 
-1. With HANA XS Advanced, we can create application containers in any language. All we need to do is tell XS Advanced how to compile and run our container. As we may plan to integrate machine learning algorithms in the future, we chose Python and specified it in this manifest file. The python buildpack runs your container by executing a file called server.py, so let’s see what it looks like.`<click Python>`
-2. It contains a simple Python HTTP service. For now, we implemented the HTTP GET method to just call our Rating stored procedure and return the result
+1. With SAP HANA XS Advanced, we can create application containers in any language. All we need to do is tell XS Advanced how to compile and run our container. As we may plan to integrate machine learning algorithms in the future, we chose Python and specified it in this manifest file. The python buildpack runs your container by executing a file called `server.py`
+    ![Python file](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step3_1.png)
+    
+2. It contains a simple Python HTTP service. For now, we implemented the HTTP GET method to just call the Rating stored procedure and return the result.
+    ![HTTP GET method](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step3_2.png)
 
 [ACCORDION-END]
 

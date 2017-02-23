@@ -185,7 +185,8 @@ API management allows the user to add policies that secures his apps on the clou
 1. Here you can see three tables, Parties, Ratings and Transactions. The Parties table holds detailed information about the customers of the bank. For these customers, we also put external rating data as semi-structured JSON documents into the brand new HANA document store. Finally, we have the Transactions table which contains money transfers between our parties. These transactions form a payment network, which can then be represented as a graph in our new in-memory graph engine.
 
     ![Source tables](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step1_1.png)
-2. All we need to do, to use the graph engine, is to create a graph workspace in which we define the parties as nodes and the transactions as edges between them. Now to calculate the trustworthiness of a specific customer, we want to analyze with whom this customer is exchanging money.
+    
+2. All we need to do, to use the graph engine, is to create a graph workspace in which we define the parties as nodes and the transactions as edges between them.
 
 [ACCORDION-END]
 
@@ -194,26 +195,26 @@ API management allows the user to add policies that secures his apps on the clou
 ###Replace Rating function with Graph rating
 
 1. To calculate this, we have a rating stored procedure, which uses plain SQL.
-2. 
+
     ![Rating procedure](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step2_1.png)
     
-    These kinds of graph queries require lots of self-joins and unions, which are tough to write and maintain.
+2. These kinds of graph queries require lots of self-joins and unions, which are tough to write and maintain.
     
     ![Unions and joins](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step2_2.png)
     
-    Now let’s see how we can simplify the SQL statement using the new graph engine.
+3. Now let’s see how we can simplify the SQL statement using the new graph engine.
     
     ![Simplified SQL](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step2_3.png)
     
-    First, we’ll get rid of the old SQL.
+4. First, we’ll get rid of the old SQL.
     
     ![Remove old SQL](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step2_4.png)
     
-    And replace it with the new one.
+5. And replace it with the new one.
     
     ![New SQL](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step2_5.png)
     
-    Using the new graph engine does not only look prettier, it also gives you much more expressiveness, flexibility and performance.
+6. Using the new graph engine does not only look prettier, it also gives you much more expressiveness, flexibility and performance.
     
     ![Graph Engine](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step2_6.png)
 
@@ -279,13 +280,69 @@ Now, we’re done with the database artifacts. Let’s move on and create a cons
 
 [ACCORDION-END]
 
-[ACCORDION-BEGIN [Step 6: ](Add URL to app)]
+[ACCORDION-BEGIN [Step 6: ](Create API)]
 
-###Add URL to app
+###Create API
 
-1. We have developed the database artifacts along with the consumable service, and have deployed all of it in the Cloud. The final step is to use the service in a Fiori frontend. 
+1. We have developed the database artifacts along with the consumable service, and have deployed all of it in the Cloud. The final step is to use the service in a Fiori frontend. Go to the SAP API Management console and select the **Create** button to create an API. 
 
-2. We have a sample lightweight application in SAP HANA with node.js, we can see the source code here. We now add the URL of the Cloud Service to the app, deploy it, and run it. 
+    ![API Management](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step6_1.png)
+    
+2. The modal will pop up. Enter the details to create your API. Add the URL of your cloud service as the API URL. 
+    
+    ![Create API](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step6_2.png)
+    
+3. Your API will be created, and you can view its properties. Go to the options on the top-right corner and go to **Policies**
+    
+    ![Policies](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step6_3.png)
+    
+4. Here you can view the policies for your API. Go to **Pre Flow** and then scroll down on the list of policy types on the right, to select and create a new **Spike Arrest** policy.
+
+    ![Create policy](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step6_4.png)
+    
+    Configure your new policy and then click **Add**
+    
+    ![Configure policy](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step6_4b.png)
+    
+5. You can make your desired chances to your policy and then select **Update** when done.
+
+    ![Edit policy](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step6_5.png)
+    
+6. Back on your API screen, you can **Save and Deploy** your API.
+
+    ![Save and deploy API](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step6_6.png)
+    
+7. You can see the deployed status of your API with its properties. 
+
+    ![Save and deploy API](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step6_7.png)
+    
+    You can see your deployment URL in the **Target endpoint** tab
+    
+    ![Save and deploy API](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step6_7b.png)
+    
+8. Open the **API Proxy URL** in a browser tab and you can see the displayed results:
+    
+     ![Save and deploy API](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step6_8.png)
+     
+     ![Save and deploy API](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step6_8b.png)
+     
+     ![Save and deploy API](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step6_8c.png)
+
+[ACCORDION-END]
+
+[ACCORDION-BEGIN [Step 7: ](Add API URL to app)]
+
+###Add API URL to app
+
+1. We have a sample lightweight application in SAP HANA with node.js. 
+
+    ![Browser Cloud](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step7_1.png)
+    
+    We can see the source code here. 
+    
+    ![Browser Cloud](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step7_1b.png)
+
+2. We now add the URL of the Cloud Service to the app, deploy it, and run it. 
 
 [ACCORDION-END]
 ---

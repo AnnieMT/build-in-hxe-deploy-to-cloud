@@ -184,7 +184,7 @@ API management allows the user to add policies that secures his apps on the clou
 
 1. Here you can see three tables, Parties, Ratings and Transactions. The Parties table holds detailed information about the customers of the bank. For these customers, we also put external rating data as semi-structured JSON documents into the brand new HANA document store. Finally, we have the Transactions table which contains money transfers between our parties. These transactions form a payment network, which can then be represented as a graph in our new in-memory graph engine.
 
-    ![Source tables](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step1_1.png)
+    ![Source tables](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/images/Step1_1.png)
     
 2. All we need to do, to use the graph engine, is to create a graph workspace in which we define the parties as nodes and the transactions as edges between them.
 
@@ -196,27 +196,27 @@ API management allows the user to add policies that secures his apps on the clou
 
 1. To calculate this, we have a rating stored procedure, which uses plain SQL.
 
-    ![Rating procedure](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step2_1.png)
+    ![Rating procedure](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/images/Step2_1.png)
     
 2. These kinds of graph queries require lots of self-joins and unions, which are tough to write and maintain.
     
-    ![Unions and joins](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step2_2.png)
+    ![Unions and joins](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/images/Step2_2.png)
     
 3. Now let’s see how we can simplify the SQL statement using the new graph engine.
     
-    ![Simplified SQL](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step2_3.png)
+    ![Simplified SQL](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/images/Step2_3.png)
     
 4. First, we’ll get rid of the old SQL.
     
-    ![Remove old SQL](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step2_4.png)
+    ![Remove old SQL](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/images/Step2_4.png)
     
 5. And replace it with the new one.
     
-    ![New SQL](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step2_5.png)
+    ![New SQL](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/images/Step2_5.png)
     
 6. Using the new graph engine does not only look prettier, it also gives you much more expressiveness, flexibility and performance.
     
-    ![Graph Engine](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step2_6.png)
+    ![Graph Engine](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/images/Step2_6.png)
 
 [ACCORDION-END]
 
@@ -228,11 +228,11 @@ Now, we’re done with the database artifacts. Let’s move on and create a cons
 
 1. With SAP HANA XS Advanced, we can create application containers in any language. All we need to do is tell XS Advanced how to compile and run our container. As we may plan to integrate machine learning algorithms in the future, we chose Python and specified it in this manifest file. The python buildpack runs your container by executing a file called `server.py`
 
-    ![Python file](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step3_1.png)
+    ![Python file](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/images/Step3_1.png)
     
 2. It contains a simple Python HTTP service. For now, we implemented the HTTP GET method to just call the Rating stored procedure and return the result.
     
-    ![HTTP GET method](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step3_2.png)
+    ![HTTP GET method](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/images/Step3_2.png)
 
 [ACCORDION-END]
 
@@ -242,19 +242,19 @@ Now, we’re done with the database artifacts. Let’s move on and create a cons
 
 1. To run the Python service, we need to deploy it. Deployment is enabled by the `manifest.yml` file.
 
-    ![Manifest local](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step4_1.png)
+    ![Manifest local](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/images/Step4_1.png)
     
 2. Type the following command via command line to execute XS push
     `xs push -f manifest.yml`
    
-    ![Local deployment](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step4_2.png)
+    ![Local deployment](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/images/Step4_2.png)
     
 3. The Python service is now starting up.
-    ![Local deployment](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step4_3.png)
+    ![Local deployment](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/images/Step4_3.png)
     
 4. This deployment can be viewed on the browser. You can see the results for the stored procedure that was called.
 
-    ![Browser Local](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step4_4.png)
+    ![Browser Local](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/images/Step4_4.png)
 
 [ACCORDION-END]
 
@@ -264,19 +264,19 @@ Now, we’re done with the database artifacts. Let’s move on and create a cons
 
 1. This same service can also be deployed in the cloud. The `manifest-cf.yml` file enables the deployment. The only thing we have to do is to replace `xs` by `cf` in the command line, and `manifest.yml` by `manifest-cf.yml`
     
-    ![Manifest cloud](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step5_1.png)
+    ![Manifest cloud](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/images/Step5_1.png)
 
 2. One simple command creates the application container, deploys the code, and starts our service in the Cloud.
     
-    ![Cloud deployment](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step5_2.png)
+    ![Cloud deployment](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/images/Step5_2.png)
     
 3. Once deployed, which just take a few moments, we can reach the service via this URL.
 
-    ![Cloud deployment](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step5_3.png)
+    ![Cloud deployment](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/images/Step5_3.png)
     
 4. This deployment can be viewed on the browser. You can see the results for the stored procedure that was called.
     
-    ![Browser Cloud](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step5_4.png)
+    ![Browser Cloud](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/images/Step5_4.png)
 
 [ACCORDION-END]
 
@@ -286,47 +286,47 @@ Now, we’re done with the database artifacts. Let’s move on and create a cons
 
 1. We have developed the database artifacts along with the consumable service, and have deployed all of it in the Cloud. The final step is to use the service in a Fiori frontend. Go to the SAP API Management console and select the **Create** button to create an API. 
 
-    ![API Management](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step6_1.png)
+    ![API Management](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/images/Step6_1.png)
     
 2. The modal will pop up. Enter the details to create your API. Add the URL of your cloud service as the API URL. 
     
-    ![Create API](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step6_2.png)
+    ![Create API](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/images/Step6_2.png)
     
 3. Your API will be created, and you can view its properties. Go to the options on the top-right corner and go to **Policies**
     
-    ![Policies](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step6_3.png)
+    ![Policies](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/images/Step6_3.png)
     
 4. Here you can view the policies for your API. Go to **Pre Flow** and then scroll down on the list of policy types on the right, to select and create a new **Spike Arrest** policy.
 
-    ![Create policy](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step6_4.png)
+    ![Create policy](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/images/Step6_4.png)
     
     Configure your new policy and then click **Add**
     
-    ![Configure policy](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step6_4b.png)
+    ![Configure policy](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/images/Step6_4b.png)
     
 5. You can make your desired chances to your policy and then select **Update** when done.
 
-    ![Edit policy](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step6_5.png)
+    ![Edit policy](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/images/Step6_5.png)
     
 6. Back on your API screen, you can **Save and Deploy** your API.
 
-    ![Save and deploy API](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step6_6.png)
+    ![Save and deploy API](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/images/Step6_6.png)
     
 7. You can see the deployed status of your API with its properties. 
 
-    ![Save and deploy API](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step6_7.png)
+    ![Save and deploy API](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/images/Step6_7.png)
     
     You can see your deployment URL in the **Target endpoint** tab
     
-    ![Save and deploy API](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step6_7b.png)
+    ![Save and deploy API](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/images/Step6_7b.png)
     
 8. Open the **API Proxy URL** in a browser tab and you can see the displayed results:
     
-     ![Save and deploy API](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step6_8.png)
+     ![Save and deploy API](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/images/Step6_8.png)
      
-     ![Save and deploy API](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step6_8b.png)
+     ![Save and deploy API](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/images/Step6_8b.png)
      
-     ![Save and deploy API](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step6_8c.png)
+     ![Save and deploy API](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/images/Step6_8c.png)
 
 [ACCORDION-END]
 
@@ -336,41 +336,41 @@ Now, we’re done with the database artifacts. Let’s move on and create a cons
 
 1. We have a sample lightweight application in SAP HANA with node.js. 
 
-    ![Browser Cloud](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step7_1.png)
+    ![Browser Cloud](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/images/Step7_1.png)
     
     We can see the source code here. 
     
-    ![Browser Cloud](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step7_1b.png)
+    ![Browser Cloud](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/images/Step7_1b.png)
 
 2. We now add the URL of the Cloud Service to the application via this line of code.
 
-    ![Browser Cloud](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step7_2.png)
+    ![Browser Cloud](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/images/Step7_2.png)
     
     Go back to the API properties and copy the API proxy URL
     
-    ![Browser Cloud](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step7_2b.png)
+    ![Browser Cloud](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/images/Step7_2b.png)
     
     And paste it back in that line of code, and then run the application with the **Run** button on the top.
     
-    ![Browser Cloud](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step7_2c.png)
+    ![Browser Cloud](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/images/Step7_2c.png)
     
     You'll be able to see that your application is now running.
     
-    ![Browser Cloud](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step7_2d.png)
+    ![Browser Cloud](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/images/Step7_2d.png)
     
 3. Now go to the `ui` folder and under `resources --> webapp`, you will find `index.html`. Run this file.
 
-    ![Browser Cloud](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step7_3.png)
+    ![Browser Cloud](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/images/Step7_3.png)
     
 4. You will see your Fiori style user interface where you can select your particular account number:
  
-    ![Browser Cloud](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step7_4.png)
+    ![Browser Cloud](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/images/Step7_4.png)
     
     You can now see your application deployed via the API URL you just entered.
     
-    ![Browser Cloud](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step7_4b.png)
+    ![Browser Cloud](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/images/Step7_4b.png)
     
-    ![Browser Cloud](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step7_4c.png)
+    ![Browser Cloud](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/images/Step7_4c.png)
 
 [ACCORDION-END]
 ---

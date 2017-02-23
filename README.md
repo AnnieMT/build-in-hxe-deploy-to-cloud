@@ -342,7 +342,35 @@ Now, we’re done with the database artifacts. Let’s move on and create a cons
     
     ![Browser Cloud](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step7_1b.png)
 
-2. We now add the URL of the Cloud Service to the app, deploy it, and run it. 
+2. We now add the URL of the Cloud Service to the application via this line of code.
+
+    ![Browser Cloud](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step7_2.png)
+    
+    Go back to the API properties and copy the API proxy URL
+    
+    ![Browser Cloud](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step7_2b.png)
+    
+    And paste it back in that line of code, and then run the application with the **Run** button on the top.
+    
+    ![Browser Cloud](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step7_2c.png)
+    
+    You'll be able to see that your application is now running.
+    
+    ![Browser Cloud](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step7_2d.png)
+    
+3. Now go to the `ui` folder and under `resources --> webapp`, you will find `index.html`. Run this file.
+
+    ![Browser Cloud](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step7_3.png)
+    
+4. You will see your Fiori style user interface where you can select your particular account number:
+ 
+    ![Browser Cloud](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step7_4.png)
+    
+    You can now see your application deployed via the API URL you just entered.
+    
+    ![Browser Cloud](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step7_4b.png)
+    
+    ![Browser Cloud](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/Step7_4c.png)
 
 [ACCORDION-END]
 ---

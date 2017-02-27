@@ -39,7 +39,7 @@ How to build a sample Python application with SAP HANA, express edition, and dep
 
 ###Database
 
-1. Execute the queries present on data.sql and insert.sql (DKOM_PYTHON_SERVICE project) in SAP HANA Studio or in Web IDE.
+1. Execute the queries present on `data.sql` and `insert.sql` (`DKOM_PYTHON_SERVICE` project) in SAP HANA Studio or in Web IDE.
 
 [ACCORDION-END]
 
@@ -49,9 +49,7 @@ How to build a sample Python application with SAP HANA, express edition, and dep
 
 The user provided service gets access to data foreign to the XSA application container. It needs to assign a database user that has authorization with grant option to the foreign schema. The `data.sql` script from the last action already assigns these authorizations to `XSA_ADMIN`.
     
-1. Execute the script to create the user provided service (if it is already created, check by typing `xs s` and look for `CROSS_SCHEMA_ACCESS_SERVICE`
-    
-    `cups` to create or `uups` to update a new service
+1. Execute the following script to create the user provided service (if it is already created, check by typing `xs s` and look for `CROSS_SCHEMA_ACCESS_SERVICE`)
     
     `xs cups CROSS_SCHEMA_ACCESS_SERVICE -p`
     `'{"host":"<host>","port":"<port>","user":"XSA_ADMIN","password":"<password>","driver":"com.sap.db.jdbc.Driver","tags":["hana"] , "schema":"<schema>" }'`
@@ -59,6 +57,8 @@ The user provided service gets access to data foreign to the XSA application con
     `<host>`: `host name or machine IP address`
     
     `<port>`: `3<instance number><13 multi containers or 15 single containers>`
+    
+    `cups` is used to create a new service, and `uups` to update a new service.
 
 [ACCORDION-END]
 

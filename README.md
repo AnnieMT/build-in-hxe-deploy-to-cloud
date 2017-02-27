@@ -286,6 +286,10 @@ Now, we’re done with the database artifacts. Let’s move on and create a cons
 
 1. We have developed the database artifacts along with the consumable service, and have deployed all of it in the Cloud. The final step is to use the service in a Fiori frontend. Go to the SAP API Management console at : [https://apiportalapimgmtdr-a37442951.hana.ondemand.com/#/shell/homepage](https://apiportalapimgmtdr-a37442951.hana.ondemand.com/#/shell/homepage) and select the **Create** button to create an API. 
 
+    API management allows the user to add policies that secures his apps on the cloud.
+    
+    **Quota Policy** specifies the number of requests allowed for the API per the interval of big time unit. 
+    
     ![API Management](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/images/Step6_1.png)
     
 2. The modal will pop up. Enter the details to create your API. Add the URL of your cloud service as the API URL. 
@@ -297,6 +301,8 @@ Now, we’re done with the database artifacts. Let’s move on and create a cons
     ![Policies](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/images/Step6_3.png)
     
 4. Here you can view the policies for your API. Go to **Pre Flow** and then scroll down on the list of policy types on the right, to select and create a new **Spike Arrest** policy.
+
+    **Spike Arrest** specifies the number of requests allowed for the API per the interval of small time unit, so the service is save of denial of service attacks and protects against performance lags and downtime.
 
     ![Create policy](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/images/Step6_4.png)
     

@@ -7,7 +7,9 @@ tags: [  tutorial>intermediate, products>sap-hana\,-express-edition ]
 ## Prerequisites  
 1. [Decide an installation option for SAP HANA, express edition](https://www.sap.com/developer/how-tos/2016/09/hxe-ua-version.html)
 2. [Binary install (for custom install on Linux machines)](https://www.sap.com/developer/tutorials/hxe-ua-installing-binary.html) 
+
    **OR**
+   
    [Virtual Machine image install (for VMs on Windows/Mac OS X, or prebuilt install on Linux machines)](https://www.sap.com/developer/tutorials/hxe-ua-installing-vm-image.html)
    
 3. For each install option chosen, please proceed to the respective **Next Steps** as outlined in each tutorial.
@@ -38,10 +40,29 @@ First, we set up the environment by importing the Python service and the UI code
 
     ![Git](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/images/Step1-1.png)
     
-2. A popup modal appears, asking for details of the repository to be cloned. 
+2. A popup modal appears, asking for details of the repository to be cloned. Enter the following URL to clone the `git` for the Python service: 
 
-    - [Python Service](https://github.wdf.sap.corp/hana-demo-team/DKOM_PYTHON_SERVICE.git)
-    - [Minimized Source Code](https://github.wdf.sap.corp/hana-demo-team/dkom_minimized.git)
+    [https://github.wdf.sap.corp/hana-demo-team/DKOM_PYTHON_SERVICE.git](https://github.wdf.sap.corp/hana-demo-team/DKOM_PYTHON_SERVICE.git)
+    
+    Select **OK**. 
+    
+    ![Clone](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/images/Step1-2.png)
+    
+    Wait for the repository to be cloned. Once cloned, it should appear on your workspace. 
+    
+    > ##### Note
+    >For additional guidance on cloning `git` repositories, please refer to this tutorial: 
+    [SAP HANA XS Advanced, Connecting to the WebIDE and cloning a Git Repository to begin development](https://www.sap.com/developer/tutorials/xsa-connecting-webide.html)
+    
+3. Now similarly, clone the `git` code for the minimized UI source code as well:
+    
+    [https://github.wdf.sap.corp/hana-demo-team/dkom_minimized.git](https://github.wdf.sap.corp/hana-demo-team/dkom_minimized.git)
+    
+    ![Clone 2](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/images/Step1-3a.png)
+    
+    You should have both your respositories cloned in your workspace like this:
+    
+    ![Cloned workspace](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/images/Step1-3b.png)
 
 [ACCORDION-END]
 

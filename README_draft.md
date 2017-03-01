@@ -26,6 +26,7 @@ How to build a sample Python application with SAP HANA, express edition, and dep
 **30 min**
 
 ---
+***Please note: Work in Progress***
 
 [ACCORDION-BEGIN [Step 1: ](Import source code)]
 

@@ -66,15 +66,15 @@ First, we set up the environment by importing the Python service and the UI code
 
 [ACCORDION-END]
 
-[ACCORDION-BEGIN [Step 2: ](Database)]
+[ACCORDION-BEGIN [Step 2: ](Database Setup)]
 
-###Database
+###Database Setup
 
 1. Execute the queries present on `data.sql` and `insert.sql` (`DKOM_PYTHON_SERVICE` project) in SAP HANA Studio or in Web IDE.
 
 [ACCORDION-END]
 
-[ACCORDION-BEGIN [Step 1: ](Show source tables)]
+[ACCORDION-BEGIN [Step 3: ](Show source tables)]
 
 ###Show source tables
 
@@ -86,7 +86,7 @@ First, we set up the environment by importing the Python service and the UI code
 
 [ACCORDION-END]
 
-[ACCORDION-BEGIN [Step 2: ](Replace Rating function with Graph rating)]
+[ACCORDION-BEGIN [Step 4: ](Replace Rating function with Graph rating)]
 
 ###Replace Rating function with Graph rating
 
@@ -116,7 +116,7 @@ First, we set up the environment by importing the Python service and the UI code
 
 [ACCORDION-END]
 
-[ACCORDION-BEGIN [Step 3: ](Show Service Wrapper in Python)]
+[ACCORDION-BEGIN [Step 5: ](Show Service Wrapper in Python)]
 
 ###Show Service Wrapper in Python
 
@@ -132,7 +132,7 @@ Now, we’re done with the database artifacts. Let’s move on and create a cons
 
 [ACCORDION-END]
 
-[ACCORDION-BEGIN [Step 4: ](Deploy locally)]
+[ACCORDION-BEGIN [Step 6: ](Deploy locally)]
 
 ###Deploy locally
 
@@ -154,7 +154,7 @@ Now, we’re done with the database artifacts. Let’s move on and create a cons
 
 [ACCORDION-END]
 
-[ACCORDION-BEGIN [Step 5: ](Deploy on Cloud)]
+[ACCORDION-BEGIN [Step 7: ](Deploy on Cloud)]
 
 ###Deploy on Cloud
 
@@ -176,7 +176,7 @@ Now, we’re done with the database artifacts. Let’s move on and create a cons
 
 [ACCORDION-END]
 
-[ACCORDION-BEGIN [Step 6: ](Create API)]
+[ACCORDION-BEGIN [Step 8: ](Create API)]
 
 ###Create API
 
@@ -232,7 +232,7 @@ Now, we’re done with the database artifacts. Let’s move on and create a cons
 
 [ACCORDION-END]
 
-[ACCORDION-BEGIN [Step 7: ](Add API URL to app)]
+[ACCORDION-BEGIN [Step 9: ](Add API URL to app)]
 
 ###Add API URL to app
 

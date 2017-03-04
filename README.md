@@ -70,8 +70,10 @@ First, we set up the environment by importing the Python service and the UI code
 
 ###Database Setup
 
-1. Execute the queries present on `data.sql` and `insert.sql` (`DKOM_PYTHON_SERVICE` project) in SAP HANA Studio or in Web IDE.
+1. Go to the **Database Configuration** icon on the left panel and click on the **+** sign to create a new database.
 
+    ![Cloned workspace](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/images/Step2-1.png)
+    
 [ACCORDION-END]
 
 [ACCORDION-BEGIN [Step 3: ](Show source tables)]

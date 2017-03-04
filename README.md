@@ -60,7 +60,7 @@ First, we set up the environment by importing the Python service and the UI code
     
     ![Clone 2](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/images/Step1-3a.png)
     
-    You should have both your respositories cloned in your workspace like this:
+    You should have both your repositories cloned in your workspace like this:
     
     ![Cloned workspace](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/images/Step1-3b.png)
 
@@ -70,9 +70,25 @@ First, we set up the environment by importing the Python service and the UI code
 
 ###Database Setup
 
-1. Go to the **Database Configuration** icon on the left panel and click on the **+** sign to create a new database.
+1. Go to the **Database Configuration** icon on the left panel and click on the **"+"** sign to create a new database.
 
     ![Cloned workspace](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/images/Step2-1.png)
+    
+2. A modal to add a new database pops up. Enter the following configuration details: 
+ - Database type: SAP HANA Database (Multitenant)
+ - Host: `IP address of your machine where HXE is running`
+ - Instance number: `90`
+ - Database: System database
+ - User: `XSA_DEV`
+ - Password: `your HANA master password` 
+
+    Select **OK**
+   
+    ![Cloned workspace](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/images/Step2-2.png)
+    
+3. Your database will be created, which looks like this:
+
+    ![Cloned workspace](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/images/Step2-3.png)
     
 [ACCORDION-END]
 

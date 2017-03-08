@@ -287,8 +287,6 @@ Now, we’re done with the database artifacts. Let’s move on and create a cons
     You can now see your application deployed via the API URL you just entered.
     
     ![Browser Cloud](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/images/Step7_4b.png)
-    
-    ![Browser Cloud](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/images/Step7_4c.png)
 
 [ACCORDION-END]
 ---

@@ -58,8 +58,6 @@ First, we set up the environment by importing the Python service and the UI code
     
     [https://github.wdf.sap.corp/hana-demo-team/dkom_minimized.git](https://github.wdf.sap.corp/hana-demo-team/dkom_minimized.git)
     
-    ![Clone 2](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/images/Step1-3a.png)
-    
     You should have both your repositories cloned in your workspace like this:
     
     ![Cloned workspace](https://github.com/AnnieSuantak/build-in-hxe-deploy-to-cloud/blob/master/images/Step1-3b.png)
